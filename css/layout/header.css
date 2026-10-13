@@ -8,8 +8,17 @@
   align-items: center;
   justify-content: space-between;
   padding-inline: max(32px, calc((100vw - var(--content-width)) / 2));
-  background: var(--color-ink);
+  background: transparent;
   color: var(--color-white);
+  transition:
+    background-color 300ms ease,
+    backdrop-filter 300ms ease;
+}
+
+/* Quando o utilizador faz scroll, o header ganha fundo para continuar legível */
+.site-header.is-scrolled {
+  background: var(--color-ink);
+  backdrop-filter: blur(6px);
 }
 
 .brand {
@@ -24,13 +33,19 @@
   color: var(--color-accent);
 }
 
+/* ManCave numa linha, slogan em baixo (grid 2 colunas) */
 .site-header .brand {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  justify-content: start;
+  column-gap: 0;
+  row-gap: 2px;
+  width: fit-content;
 }
 
 .site-header .brand small {
+  grid-column: 1 / -1;
   color: var(--color-paper);
   font-family: var(--font-body);
   font-size: 0.58rem;
