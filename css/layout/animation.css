@@ -1,0 +1,150 @@
+﻿:root {
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-duration: 600ms;
+}
+
+.hero::before {
+  animation: hero-background-zoom 1200ms var(--motion-ease) both;
+}
+
+.hero-word {
+  animation: hero-word-reveal var(--motion-duration) var(--motion-ease) both;
+  animation-delay: calc(var(--word-index) * 80ms);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--motion-duration) var(--motion-ease),
+    transform var(--motion-duration) var(--motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for grid items */
+.work-grid > :nth-child(2),
+.quote-grid > :nth-child(2),
+.barber-grid > :nth-child(2),
+.service-list > :nth-child(2) {
+  --reveal-delay: 100ms;
+}
+
+.work-grid > :nth-child(3),
+.quote-grid > :nth-child(3),
+.barber-grid > :nth-child(3),
+.service-list > :nth-child(3) {
+  --reveal-delay: 200ms;
+}
+
+.work-grid > :nth-child(4),
+.quote-grid > :nth-child(4),
+.barber-grid > :nth-child(4),
+.service-list > :nth-child(4) {
+  --reveal-delay: 300ms;
+}
+
+.work-grid > :nth-child(5),
+.quote-grid > :nth-child(5),
+.barber-grid > :nth-child(5),
+.service-list > :nth-child(5) {
+  --reveal-delay: 400ms;
+}
+
+.work-grid > :nth-child(n+6),
+.quote-grid > :nth-child(n+6),
+.barber-grid > :nth-child(n+6),
+.service-list > :nth-child(n+6) {
+  --reveal-delay: 500ms;
+}
+
+.work-card img {
+  transition: transform 300ms var(--motion-ease);
+}
+
+.about-media::after {
+  transition: transform var(--motion-duration) var(--motion-ease);
+}
+
+.footer-socials a,
+.site-nav a:not(.nav-cta),
+.site-nav a:not(.nav-cta)::after {
+  transition-duration: 300ms;
+  transition-timing-function: var(--motion-ease);
+}
+
+@keyframes hero-background-zoom {
+  from {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-word-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes star-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.995);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(1.035);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .about-media::after {
+    display: none;
+  }
+
+  .hero-word {
+    opacity: 1;
+    transform: none;
+  }
+}

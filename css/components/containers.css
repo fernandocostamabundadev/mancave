@@ -1,0 +1,7 @@
+.section-pad {
+  padding-block: clamp(72px, 9vw, 128px);
+  padding-inline: max(
+    var(--page-gutter),
+    calc((100vw - var(--content-width)) / 2)
+  );
+}

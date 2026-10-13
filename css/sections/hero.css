@@ -1,0 +1,94 @@
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  background: var(--color-ink) url("../../assets/img/hero-img.png")
+    center 42% / cover no-repeat;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(15 13 12 / 72%),
+      rgb(15 13 12 / 37%) 52%,
+      rgb(15 13 12 / 67%)
+    ),
+    linear-gradient(0deg, rgb(15 13 12 / 55%), transparent 55%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(700px, calc(100% - 38px));
+}
+
+.hero-kicker {
+  margin: 0 0 7px;
+  color: var(--color-paper);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin-bottom: 18px;
+  font-size: clamp(3.2rem, 7vw, 5.7rem);
+}
+
+.hero h1 span {
+  display: inline-block;
+}
+
+.hero-copy {
+  max-width: 510px;
+  margin: 0 auto 28px;
+  color: var(--color-paper);
+  font-size: 0.92rem;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateX(-50%);
+  color: var(--color-paper);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.scroll-cue span {
+  width: 26px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 10vw, 4.2rem);
+  }
+
+  .hero-copy {
+    font-size: 0.84rem;
+  }
+
+  .scroll-cue {
+    bottom: 20px;
+    font-size: 0.58rem;
+  }
+}

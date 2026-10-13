@@ -1,0 +1,5 @@
+.barbers {
+  display: grid;
+  align-content: center;
+  background: var(--color-paper-light);
+}

@@ -1,0 +1,18 @@
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 44px;
+  margin-bottom: 38px;
+}
+
+.section-heading h2 {
+  margin: 12px 0 0;
+}
+
+.section-heading > p {
+  max-width: 360px;
+  margin-bottom: 6px;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}

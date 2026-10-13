@@ -1,0 +1,17 @@
+.testimonials {
+  display: grid;
+  align-content: center;
+  background: var(--color-paper-deep);
+  text-align: center;
+}
+
+.testimonials > h2 {
+  margin: 13px 0 48px;
+}
+
+.quote-mark {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  line-height: 0.8;
+}
